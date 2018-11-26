@@ -1,11 +1,10 @@
 > This is a fork of the original [ESPUI library by @s00500](https://github.com/s00500/ESPUI).
 > 
-> Currently, this fork is equal to the original release 1.5.4, as the following commits have been merged upstream:
-> 
-> - Fixed touchmove bug on some mobile browsers ([1a45b31](https://github.com/orithena/ESPUI/commit/1a45b311e023a084a90bd3cc3d79c47073235916), merged upstream)
-> - Dev Tool: Python script ([tools/prepare_static_ui_resources.py](https://github.com/orithena/ESPUI/blob/master/tools/prepare_static_ui_sources.py)) to regenerate minified and gzipped HTML/CSS/JS files ([557bdd8](https://github.com/orithena/ESPUI/commit/557bdd862c0b0128adbe036b1bd6bb6dbbc738b8), merged upstream)
-> - The 'no connection' label can now be clicked to reinitialize and reconnect the UI ([615665d](https://github.com/orithena/ESPUI/commit/615665d9c57ea8ac746169d1a7f1be39ef16df16), merged upstream)
-> - Enlarged slider controls on touchscreen devices ([aaf6240](https://github.com/orithena/ESPUI/commit/aaf6240220f4763be6e1753a5f11b2ee5b8d0d37), merged upstream)
+> As of now, all changes made here have been accepted upstream.
+> Currently, this fork is equal to the original release 1.6.0.
+>
+> Please use the issue tracker of the upstream repository unless your issue
+> refers to features that are exclusive to this fork.
 
 # ESPUI
 ![ESPUI](https://github.com/s00500/ESPUI/blob/master/docs/ui_complete.png)
@@ -57,7 +56,7 @@ Download the [Repository](https://github.com/s00500/ESPUI/archive/master.zip), G
 
 ## Getting started
 
-ESPUI serves several Files to the browser to build up its webinterface. This can be achieved in 2 wasy: 
+ESPUI serves several files to the browser to build up its webinterface. This can be achieved in 2 ways: 
 *PROGMEM* or *SPIFFS*
 
 *When `ESPUI.begin()` is called the default is serving files from Memory and ESPUI should work out of the box!*
@@ -168,7 +167,14 @@ The library is designed to be easy to use and can still be extended with a lot o
 
 
 # Notes for Development
-All changes to the client side files can be made in the `examples/gui/data` directory. Using the file uploader then can be used for development. After this you have to compress them and then you can gzip them. I wrote a little useful jsfiddle for this, [CHECK IT OUT](https://jsfiddle.net/s00500/yvLbhuuv/)... or there is the `prepare_static_ui_sources.py` script in the `tools` directory, if you have a python3 environment available (you also need the modules jsmin, htmlmin and csscompressor).
+If you want to work on the HTML/CSS/JS files, do make changes in the `examples/gui/data` directory. When you need to transfer that code to the ESP, run `tools/prepare_static_ui_sources.py -a` (this script needs python3 with the modules htmlmin, jsmin and csscompressor).
+This will generate a) minified files next to the original files to be uploaded with the ESP32 sketch data uploader mentioned above and b) the C header files in `src` that contain the minified and gzipped HTML/CSS/JS data (which are used by the **prepareFileSystem** example sketch or when they are served from PROGMEM; see above in the section "Getting started").
+Alternatively, you can duplicate the `examples/gui` directory and work on the copy. Then specify the `--source` and `--target` arguments to the `prepare_static_ui_sources.py` script (run the script without arguments for help).
+
+If you don't have a python environment, you need to minify and gzip the HTML/CSS/JS files manually. I wrote a little useful jsfiddle for this, [see here](https://jsfiddle.net/s00500/yvLbhuuv/).
+
+If you change something in HTML/CSS/JS and want to create a pull request, please do include the minified versions and corresponding C header files in your commits.
+
 
 # Contribute
 Liked this Library? You can **support** me by sending me a :coffee: [Coffee](https://paypal.me/lukasbachschwell/3).
