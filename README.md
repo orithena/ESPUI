@@ -86,6 +86,8 @@ Now you are set to go and use any code you want to with this library
   - Control pad
   - Control pad with center button
   - Slider
+  - Text Input (updateable)
+  - Numberinput (updateable)
 
   Checkout the example for the usage
   
@@ -108,11 +110,12 @@ Now you are set to go and use any code you want to with this library
 - ~~Multiline Labels~~
 - ~~GZip Files and serve from memory~~
 - Datagraph output -> *WIP*
-- Number input -> *WIP*
-- Text input -> *WIP*
+- ~~Number input ~~
+- ~~Text input ~~
+- Dokumentation for Text and number widget
+- Number min and max value
 - proper return value (as int and not as string) for slider
 - Maybe a slider range setting, meanwhile please use *map()*
-- Improve slider stability
 
 ## Documentation
 
