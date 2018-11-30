@@ -1,10 +1,7 @@
 > This is a fork of the original [ESPUI library by @s00500](https://github.com/s00500/ESPUI).
 > 
-> As of now, all changes made here have been accepted upstream.
-> Currently, this fork is equal to the original release 1.6.0.
->
-> Please use the issue tracker of the upstream repository unless your issue
-> refers to features that are exclusive to this fork.
+> Since I'm now collaborating on the upstream repo and all features created here have been accepted upstream, 
+> development stops here. Please refer to the [upstream repository](https://github.com/s00500/ESPUI).
 
 # ESPUI
 ![ESPUI](https://github.com/s00500/ESPUI/blob/master/docs/ui_complete.png)
